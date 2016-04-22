@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="messageApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Messages</title>
+    <script src="angular.min.js"></script>
+    <script src="client.js"></script>
+  </head>
+  <body ng-controller="MessageController as mess">
+    <h1>Whatchu got to say?</h1>
+    <input type="text" ng-model="mess.words" />
+    <button ng-click="mess.showWords()">Send</button>
+    <div ng-show="mess.showNew"><h3>Message is:</h3> {{mess.messageArray[0]}} </div>
+    <br />
+    <div ng-show="mess.showPrevious">
+      <h2>Previous messages are:</h2>
+      <ol>
+        <li ng-repeat="message in mess.previousArray">
+          {{message}}
+        </li>
+      </ol>
+    </div>
+
+  </body>
+</html>
